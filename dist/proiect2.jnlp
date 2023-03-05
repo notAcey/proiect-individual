@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="proiect2.jnlp">
+  <information>
+    <title>proiect2</title>
+    <vendor>Delian</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="lib\fontawesomefx-8.9.jar" size="571068" download="eager" />
+    <jar href="lib\mssql-jdbc-12.2.0.jre8.jar" size="1440368" download="eager" />
+    <jar href="lib\mysql-connector-j-8.0.31.jar" size="2515519" download="eager" />
+    <jar href="proiect2.jar" size="69626" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="800" height="600" main-class="proiect2.Proiect2"  name="proiect2" />
+  <update check="always"/>
+</jnlp>

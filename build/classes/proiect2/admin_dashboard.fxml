@@ -1,0 +1,864 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.lang.String?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proiect2.admin_dashboardController">
+   <children>
+      <AnchorPane fx:id="main_form" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <BorderPane prefHeight="800.0" prefWidth="1600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <top>
+                  <AnchorPane prefHeight="27.0" prefWidth="1600.0" styleClass="semi-top-form" stylesheets="@admin_dashboard.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="-17.0" layoutY="-75.0" prefHeight="36.0" prefWidth="1600.0" styleClass="top_form" stylesheets="@admin_dashboard.css" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <FontAwesomeIconView glyphName="GRADUATION_CAP" layoutX="14.0" layoutY="22.0" size="1.4em" />
+                              <Label layoutX="43.0" layoutY="8.0" text="Student Management System">
+                                 <font>
+                                    <Font size="12.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="btn_close" layoutX="1544.0" layoutY="2.0" mnemonicParsing="false" onAction="#close" prefHeight="20.0" prefWidth="55.0" styleClass="close" stylesheets="@admin_dashboard.css">
+                                 <graphic>
+                                    <FontAwesomeIconView glyphName="CLOSE" size="14" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="btn_minimize" layoutX="1509.0" layoutY="2.0" mnemonicParsing="false" onAction="#minimize" prefHeight="20.0" prefWidth="35.0" styleClass="minimize" stylesheets="@admin_dashboard.css">
+                                 <graphic>
+                                    <FontAwesomeIconView glyphName="MINUS" size="14" />
+                                 </graphic></Button>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </top>
+               <left>
+                  <AnchorPane prefHeight="576.0" prefWidth="250.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutY="-1.0" prefHeight="766.0" prefWidth="250.0" styleClass="nav-form" stylesheets="@admin_dashboard.css" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0">
+                           <children>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="49.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/login.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="53.0" layoutY="145.0" text="Bine ai venit," textFill="WHITE">
+                                 <font>
+                                    <Font size="26.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="94.0" layoutY="183.0" text="admin" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Line endX="70.20748901367188" endY="-1.52587890625E-5" layoutX="140.0" layoutY="216.0" startX="-100.0" stroke="WHITE" AnchorPane.leftAnchor="39.29289245605469" AnchorPane.rightAnchor="39.95333699884716" />
+                              <Button fx:id="btn_home" layoutX="42.0" layoutY="230.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="30.0" prefWidth="160.0" styleClass="nav-btn" stylesheets="@admin_dashboard.css" text="Home">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                                 <graphic>
+                                    <FontAwesomeIconView fill="WHITE" glyphName="HOME" size="1.5em" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="btn_student" layoutX="42.0" layoutY="293.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="30.0" prefWidth="160.0" styleClass="nav-btn" stylesheets="@admin_dashboard.css" text="Adauga Studenti">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                                 <graphic>
+                                    <FontAwesomeIconView fill="WHITE" glyphName="PLUS" size="1.5em" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="btn_fac_spec" layoutY="389.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="34.0" prefWidth="247.0" styleClass="nav-btn" stylesheets="@admin_dashboard.css" text="Adauga Facultate/Specializare">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                                 <graphic>
+                                    <FontAwesomeIconView fill="WHITE" glyphName="PLUS" size="1.5em" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="btn_signOut" layoutX="14.0" layoutY="703.0" mnemonicParsing="false" onAction="#logout" prefHeight="48.0" prefWidth="158.0" styleClass="logout" stylesheets="@admin_dashboard.css" text=" Sign Out">
+                                 <graphic>
+                                    <FontAwesomeIconView glyphName="SIGN_OUT" size="3em" wrappingWidth="27.344614028930664" />
+                                 </graphic>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btn_prof" layoutX="42.0" layoutY="325.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="30.0" prefWidth="160.0" styleClass="nav-btn" stylesheets="@admin_dashboard.css" text="Adauga Profesor">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                                 <graphic>
+                                    <FontAwesomeIconView fill="WHITE" glyphName="PLUS" size="1.5em" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="btn_materie" layoutX="42.0" layoutY="358.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="30.0" prefWidth="160.0" styleClass="nav-btn" stylesheets="@admin_dashboard.css" text="Adauga Materie">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                                 <graphic>
+                                    <FontAwesomeIconView fill="WHITE" glyphName="PLUS" size="1.5em" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="btn_editAlocareCursuri" layoutX="10.0" layoutY="422.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="32.0" prefWidth="226.0" styleClass="nav-btn" stylesheets="@admin_dashboard.css" text="Modifica alocarea cursurilor">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                                 <graphic>
+                                    <FontAwesomeIconView fill="WHITE" glyphName="EDIT" size="1.5em" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="btn_editUsers" layoutX="42.0" layoutY="455.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="33.0" prefWidth="166.0" styleClass="nav-btn" stylesheets="@admin_dashboard.css" text="Modifica utilizatorii">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                                 <graphic>
+                                    <FontAwesomeIconView fill="WHITE" glyphName="EDIT" size="1.5em" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="btn_adrese" layoutX="42.0" layoutY="262.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="30.0" prefWidth="160.0" styleClass="nav-btn" stylesheets="@admin_dashboard.css" text="Adauga Adresa">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                                 <graphic>
+                                    <FontAwesomeIconView fill="WHITE" glyphName="PLUS" size="1.5em" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </left>
+               <center>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane fx:id="home_form" layoutX="78.0" layoutY="159.0" prefHeight="567.8490770393615" prefWidth="900.226447491428" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="741.0" prefWidth="1320.0" stylesheets="@admin_dashboard.css">
+                                 <styleClass>
+                                    <String fx:value="white_bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <AnchorPane prefHeight="140.0" prefWidth="1320.0" stylesheets="@admin_dashboard.css">
+                                       <styleClass>
+                                          <String fx:value="white_bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <AnchorPane layoutX="14.0" layoutY="5.0" prefHeight="130.0" prefWidth="330.0" styleClass="card" stylesheets="@admin_dashboard.css">
+                                             <children>
+                                                <FontAwesomeIconView fill="WHITE" glyphName="USERS" layoutX="7.0" layoutY="75.0" size="6em" />
+                                                <Label layoutX="74.0" layoutY="85.0" text="Total enrolled students" textFill="WHITE">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="home_totalStudents" alignment="CENTER_RIGHT" layoutX="189.0" layoutY="14.0" prefHeight="34.0" prefWidth="127.0" text="0" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="Arial Bold" size="26.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane layoutX="495.0" layoutY="5.0" prefHeight="130.0" prefWidth="330.0" styleClass="card" stylesheets="@admin_dashboard.css">
+                                             <children>
+                                                <Label layoutX="59.0" layoutY="88.0" text="Total professors that teach" textFill="WHITE">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <FontAwesomeIconView fill="WHITE" glyphName="USERS" layoutX="8.0" layoutY="70.0" size="6em" />
+                                                <Label fx:id="home_totalProfs" alignment="CENTER_RIGHT" layoutX="189.0" layoutY="14.0" prefHeight="34.0" prefWidth="127.0" text="0" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="Arial Bold" size="26.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane layoutX="975.0" layoutY="5.0" prefHeight="130.0" prefWidth="330.0" styleClass="card" stylesheets="@admin_dashboard.css">
+                                             <children>
+                                                <FontAwesomeIconView fill="WHITE" glyphName="USERS" layoutX="6.0" layoutY="72.0" size="6em" />
+                                                <Label layoutX="98.0" layoutY="88.0" text="Total working admins" textFill="WHITE">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="home_totalAdmins" alignment="CENTER_RIGHT" layoutX="184.0" layoutY="11.0" prefHeight="34.0" prefWidth="127.0" text="0" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="Arial Bold" size="26.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="14.0" layoutY="154.0" prefHeight="576.0" prefWidth="640.0" stylesheets="@admin_dashboard.css">
+                                       <styleClass>
+                                          <String fx:value="shadow" />
+                                          <String fx:value="white_bg" />
+                                       </styleClass>
+                                       <children>
+                                          <BarChart fx:id="home_totalStudChart" layoutX="-70.0" layoutY="-40.0" prefHeight="374.03774930981865" prefWidth="667.0" title="Total students" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <xAxis>
+                                              <CategoryAxis side="BOTTOM" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis side="LEFT" />
+                                            </yAxis>
+                                          </BarChart>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="670.0" layoutY="454.0" prefHeight="275.0" prefWidth="637.0" stylesheets="@admin_dashboard.css">
+                                       <styleClass>
+                                          <String fx:value="white_bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <LineChart fx:id="home_totalFacChart" layoutX="-61.0" layoutY="5.0" prefHeight="182.0" prefWidth="439.0" title="No. of faculties" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
+                                            <xAxis>
+                                              <CategoryAxis side="BOTTOM" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis side="LEFT" />
+                                            </yAxis>
+                                          </LineChart>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="669.0" layoutY="154.0" prefHeight="289.0" prefWidth="638.0" stylesheets="@admin_dashboard.css">
+                                       <styleClass>
+                                          <String fx:value="white_bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <LineChart fx:id="home_totalCoursesChart" layoutX="-48.0" layoutY="-114.0" prefHeight="182.0" prefWidth="439.0" title="No. of total courses" AnchorPane.bottomAnchor="-11.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <xAxis>
+                                              <CategoryAxis side="BOTTOM" />
+                                            </xAxis>
+                                            <yAxis>
+                                              <NumberAxis side="LEFT" />
+                                            </yAxis>
+                                          </LineChart>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="student_form" layoutX="250.0" layoutY="144.0" prefHeight="567.8490770393615" prefWidth="900.226447491428" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="737.0" prefWidth="1323.0" stylesheets="@admin_dashboard.css">
+                                 <styleClass>
+                                    <String fx:value="white_bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <AnchorPane prefHeight="418.0" prefWidth="1323.0" stylesheets="@admin_dashboard.css">
+                                       <styleClass>
+                                          <String fx:value="white_bg" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <children>
+                                          <TextField fx:id="studenti_searchBox" layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="280.0" promptText="Search" styleClass="search" stylesheets="@admin_dashboard.css" />
+                                          <FontAwesomeIconView glyphName="SEARCH" layoutX="21.0" layoutY="33.0" size="16" />
+                                          <TableView fx:id="studenti_tableView" layoutX="4.0" layoutY="65.0" onMouseClicked="#addStudentsSelect" prefHeight="346.0" prefWidth="1315.0">
+                                            <columns>
+                                              <TableColumn fx:id="studenti_tableView_idStud" prefWidth="35.0" text="ID" />
+                                              <TableColumn fx:id="studenti_tableView_idUtiliz" prefWidth="57.9622802734375" text="ID_utiliz" />
+                                                <TableColumn fx:id="studenti_tableView_idSpec" prefWidth="106.86790466308594" text="ID_specializare" />
+                                                <TableColumn fx:id="studenti_tableView_nume" prefWidth="200.0" text="Nume" />
+                                                <TableColumn fx:id="studenti_tableView_prenume" prefWidth="200.0" text="Prenume" />
+                                                <TableColumn fx:id="studenti_tableView_dataNasterii" prefWidth="127.697998046875" text="Data nasterii" />
+                                                <TableColumn fx:id="studenti_tableView_sex" prefWidth="45.282958984375" text="Sex" />
+                                                <TableColumn fx:id="studenti_tableView_cnp" editable="false" minWidth="0.0" prefWidth="155.7734375" text="CNP" />
+                                                <TableColumn fx:id="studenti_tableView_statut" editable="false" minWidth="0.0" prefWidth="93.2830810546875" text="Statut" />
+                                                <TableColumn fx:id="studenti_tableView_locBuget" editable="false" minWidth="0.0" prefWidth="95.0943603515625" text="Loc bugetat" />
+                                                <TableColumn fx:id="studenti_tableView_an" editable="false" minWidth="0.0" prefWidth="50.717041015625" text="An" />
+                                                <TableColumn fx:id="studenti_tableView_grupa" editable="false" minWidth="0.0" prefWidth="61.5849609375" text="Grupa" />
+                                                <TableColumn fx:id="studenti_tableView_subgrupa" editable="false" minWidth="0.0" prefWidth="79.6981201171875" text="Subgrupa" />
+                                            </columns>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                    <Label layoutX="104.0" layoutY="521.0" text="Nume student:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="studenti_txb_nume" layoutX="211.0" layoutY="519.0" prefHeight="25.0" prefWidth="240.0" styleClass="textfield" stylesheets="@admin_dashboard.css" AnchorPane.leftAnchor="211.0" />
+                                    <Label layoutX="85.0" layoutY="553.0" text="Prenume Student:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="studenti_txb_prenume" layoutX="212.0" layoutY="551.0" prefHeight="25.0" prefWidth="240.0" styleClass="textfield" stylesheets="@admin_dashboard.css" AnchorPane.leftAnchor="212.0" />
+                                    <Label layoutX="114.0" layoutY="586.0" text="Data Nastere:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="172.0" layoutY="652.0" text="CNP:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="studenti_txb_cnp" layoutX="213.0" layoutY="650.0" prefHeight="25.0" prefWidth="240.0" styleClass="textfield" stylesheets="@admin_dashboard.css" AnchorPane.leftAnchor="213.0" />
+                                    <Label layoutX="175.0" layoutY="619.0" text="Sex:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox fx:id="studenti_combo_sex" layoutX="213.0" layoutY="617.0" onAction="#addStudentsGenderList" prefHeight="25.0" prefWidth="240.0" styleClass="textfield" stylesheets="@admin_dashboard.css" AnchorPane.leftAnchor="213.0" />
+                                    <Label layoutX="540.0" layoutY="484.0" text="Loc bugetat:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox fx:id="studenti_combo_locBuget" layoutX="632.0" layoutY="482.0" onAction="#addStudentsBugetList" prefWidth="240.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <Label layoutX="597.0" layoutY="517.0" text="An:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox fx:id="studenti_combo_an" layoutX="632.0" layoutY="515.0" onAction="#addStudentsYearList" prefWidth="240.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <Label layoutX="575.0" layoutY="549.0" text="Grupa:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox fx:id="studenti_combo_grupa" layoutX="632.0" layoutY="547.0" onAction="#addStudentsGroupList" prefWidth="240.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <Label layoutX="555.0" layoutY="583.0" text="Subgrupa:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox fx:id="studenti_combo_subgrupa" layoutX="632.0" layoutY="581.0" onAction="#addStudentsSubGroupList" prefWidth="240.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <Button fx:id="studenti_btnAdd" layoutX="1228.0" layoutY="674.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="72.0" styleClass="add-update-clear-btn" stylesheets="@admin_dashboard.css" text="Add" />
+                                    <Button fx:id="studenti_btnUpdate" layoutX="1136.0" layoutY="674.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="72.0" styleClass="add-update-clear-btn" stylesheets="@admin_dashboard.css" text="Update" />
+                                    <Button fx:id="studenti_btnDelete" layoutX="991.0" layoutY="674.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="72.0" styleClass="del-btn" stylesheets="@admin_dashboard.css" text="Delete" />
+                                    <Button fx:id="studenti_btnClear" layoutX="899.0" layoutY="674.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="72.0" styleClass="add-update-clear-btn" text="Clear" />
+                                    <DatePicker fx:id="studenti_dataNastere" layoutX="212.0" layoutY="584.0" prefHeight="24.0" prefWidth="240.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <Label layoutX="119.0" layoutY="686.0" text="ID Utilizator:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="524.0" layoutY="618.0" text="ID Specializare:" AnchorPane.bottomAnchor="97.47172386139653">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="574.0" layoutY="650.0" text="Status:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox fx:id="studenti_combo_statut" layoutX="632.0" layoutY="649.0" onAction="#addStudentsStatusList" prefWidth="240.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <ComboBox fx:id="studenti_combo_idUtil" layoutX="213.0" layoutY="685.0" prefWidth="240.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <ComboBox fx:id="studenti_combo_idSpec" layoutX="631.0" layoutY="615.0" prefWidth="240.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <Label layoutX="124.0" layoutY="487.0" text="ID student:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="studenti_txb_idStudent" layoutX="211.0" layoutY="485.0" prefHeight="25.0" prefWidth="240.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="materie_form" layoutX="55.0" layoutY="61.0" prefHeight="566.9434166294104" prefWidth="900.226447491428" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="14.0" layoutY="16.0" prefHeight="736.0" prefWidth="486.0" stylesheets="@admin_dashboard.css">
+                                 <styleClass>
+                                    <String fx:value="white_bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <TextField fx:id="materii_txb_nume" layoutX="90.0" layoutY="35.0" prefWidth="240.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <TextField fx:id="materii_txb_credite" layoutX="90.0" layoutY="85.0" prefWidth="240.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <TextField fx:id="materii_txb_semestru" layoutX="90.0" layoutY="141.0" prefWidth="240.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <TextField fx:id="materii_txb_statut" layoutX="90.0" layoutY="194.0" prefWidth="240.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <Label layoutX="36.0" layoutY="35.0" text="Nume:">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="34.0" layoutY="87.0" text="Credite:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="14.0" layoutY="141.0" text="Semestru:">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="37.0" layoutY="194.0" text="Statut:">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="materii_btnAdd" layoutX="60.0" layoutY="267.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="79.0" styleClass="add-update-clear-btn" stylesheets="@admin_dashboard.css" text="Add">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="materii_btnDelete" layoutX="350.0" layoutY="266.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="75.0" styleClass="del-btn" stylesheets="@admin_dashboard.css" text="Delete" />
+                                    <Button fx:id="materii_btnUpdate" layoutX="154.0" layoutY="267.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="79.0" styleClass="add-update-clear-btn" stylesheets="@admin_dashboard.css" text="Update" />
+                                    <Button fx:id="materii_btnClear" layoutX="252.0" layoutY="267.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="79.0" styleClass="add-update-clear-btn" stylesheets="@admin_dashboard.css" text="Clear" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="518.0" layoutY="16.0" prefHeight="736.0" prefWidth="818.0" stylesheets="@admin_dashboard.css">
+                                 <styleClass>
+                                    <String fx:value="white_bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <TableView fx:id="materii_tableView" layoutX="14.0" layoutY="71.0" prefHeight="659.0" prefWidth="792.0">
+                                      <columns>
+                                        <TableColumn fx:id="materii_tableView_id" prefWidth="59.77362060546875" text="ID" />
+                                        <TableColumn fx:id="materii_tableView_id_spec" prefWidth="101.4339599609375" text="ID_specializare" />
+                                          <TableColumn fx:id="materii_tableView_nume" prefWidth="318.7923583984375" text="Nume" />
+                                          <TableColumn fx:id="materii_tableView_credite" prefWidth="96.0" text="Credite" />
+                                          <TableColumn fx:id="materii_tableView_semestru" prefWidth="84.2264404296875" text="Semestru" />
+                                          <TableColumn fx:id="materii_tableView_statut" prefWidth="130.4151611328125" text="Statut" />
+                                      </columns>
+                                    </TableView>
+                                    <TextField fx:id="materii_searchBox" layoutX="44.0" layoutY="21.0" prefHeight="30.0" prefWidth="240.0" promptText="Search" styleClass="search" stylesheets="@admin_dashboard.css" />
+                                    <FontAwesomeIconView glyphName="SEARCH" layoutX="52.0" layoutY="42.0" size="1.5em" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="specializare_fac_form" layoutX="14.0" layoutY="14.0" prefHeight="566.9434166294104" prefWidth="900.226447491428" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                              <AnchorPane layoutX="14.0" layoutY="13.0" prefHeight="466.0" prefWidth="553.0" stylesheets="@admin_dashboard.css">
+                                 <styleClass>
+                                    <String fx:value="white_bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <TextField fx:id="specializare_txb_nume" layoutX="204.0" layoutY="253.0" prefWidth="220.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <TextField fx:id="specializare_txb_taxa" layoutX="204.0" layoutY="295.0" prefWidth="220.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <TextField fx:id="specializare_txb_buget" layoutX="204.0" layoutY="341.0" prefWidth="220.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <Button fx:id="facultate_btnUpdate" layoutX="187.0" layoutY="93.0" mnemonicParsing="false" onAction="#updateFacultati" prefHeight="45.0" prefWidth="75.0" styleClass="add-update-clear-btn" stylesheets="@admin_dashboard.css" text="Update" />
+                                    <Button fx:id="facultate_btnAdd" layoutX="89.0" layoutY="94.0" mnemonicParsing="false" onAction="#addFacultati" prefHeight="43.0" prefWidth="75.0" styleClass="add-update-clear-btn" stylesheets="@admin_dashboard.css" text="Add" />
+                                    <Button fx:id="facultate_btnClear" layoutX="287.0" layoutY="93.0" mnemonicParsing="false" onAction="#clearFacultati" prefHeight="45.0" prefWidth="75.0" styleClass="add-update-clear-btn" stylesheets="@admin_dashboard.css" text="Clear" />
+                                    <Button fx:id="facultate_btnDelete" layoutX="388.0" layoutY="93.0" mnemonicParsing="false" onAction="#deleteFacultati" prefHeight="45.0" prefWidth="75.0" styleClass="del-btn" stylesheets="@admin_dashboard.css" text="Delete" />
+                                    <Button fx:id="specializare_btnAdd" layoutX="89.0" layoutY="389.0" mnemonicParsing="false" onAction="#addSpecializari" prefHeight="45.0" prefWidth="75.0" styleClass="add-update-clear-btn" stylesheets="@admin_dashboard.css" text="Add" />
+                                    <Button fx:id="specializare_btnUpdate" layoutX="187.0" layoutY="389.0" mnemonicParsing="false" onAction="#updateSpecializari" prefHeight="45.0" prefWidth="75.0" styleClass="add-update-clear-btn" stylesheets="@admin_dashboard.css" text="Update" />
+                                    <Button fx:id="specializare_btnClear" layoutX="287.0" layoutY="389.0" mnemonicParsing="false" onAction="#clearSpecializari" prefHeight="45.0" prefWidth="75.0" styleClass="add-update-clear-btn" text="Clear" />
+                                    <Button fx:id="specializare_btnDelete" layoutX="388.0" layoutY="389.0" mnemonicParsing="false" onAction="#deleteSpecializari" prefHeight="45.0" prefWidth="75.0" styleClass="del-btn" text="Delete" />
+                                    <ComboBox fx:id="specializare_combo_faculta" layoutX="204.0" layoutY="208.0" onAction="#specializariFacultatiList" prefWidth="220.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <Label layoutX="125.0" layoutY="50.0" text="Facultate:">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="123.0" layoutY="207.0" text="Facultate:">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="143.0" layoutY="252.0" text="Nume:">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="facultate_txb_nume" layoutX="207.0" layoutY="50.0" prefWidth="220.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <Label layoutX="68.0" layoutY="294.0" text="Numar locuri taxa:">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="52.0" layoutY="340.0" text="Numar locuri buget:">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="facultate_txb_id" layoutX="207.0" layoutY="11.0" prefWidth="220.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <Label layoutX="172.0" layoutY="10.0" text="ID:">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="specializare_txb_id" layoutX="204.0" layoutY="166.0" prefWidth="220.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <Label layoutX="171.0" layoutY="165.0" text="ID:">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="14.0" layoutY="490.0" prefHeight="264.0" prefWidth="554.0" stylesheets="@admin_dashboard.css">
+                                 <styleClass>
+                                    <String fx:value="white_bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <TableView fx:id="facultate_tableView" layoutX="8.0" layoutY="8.0" onMouseClicked="#facultatiDisponibileSelect" prefHeight="248.0" prefWidth="538.0">
+                                      <columns>
+                                        <TableColumn fx:id="facultate_tableView_id" prefWidth="52.52837944030762" text="ID" />
+                                          <TableColumn fx:id="facultate_tableView_numeFac" prefWidth="480.90553283691406" text="Facultate" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="580.0" layoutY="13.0" prefHeight="740.0" prefWidth="757.0" stylesheets="@admin_dashboard.css">
+                                 <styleClass>
+                                    <String fx:value="white_bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <TableView fx:id="specializare_tableView" layoutX="9.0" layoutY="9.0" onMouseClicked="#specializariDisponibileSelect" prefHeight="721.0" prefWidth="739.0">
+                                       <columns>
+                                          <TableColumn fx:id="specializare_tableView_numeFac" prefWidth="175.6981201171875" text="Facultate" />
+                                          <TableColumn fx:id="specializare_tableView_nume" prefWidth="315.16973876953125" text="Nume" />
+                                          <TableColumn fx:id="specializare_tableView_numarTaxa" prefWidth="100.5283203125" text="Taxa" />
+                                          <TableColumn fx:id="specializare_tableView_numarBuget" prefWidth="104.1510009765625" text="Buget" />
+                                          <TableColumn fx:id="specializare_tableView_id" prefWidth="38.037841796875" text="ID" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="profesor_form" layoutX="46.0" layoutY="73.0" prefHeight="566.9434166294104" prefWidth="900.226447491428" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                              <AnchorPane layoutX="14.0" layoutY="12.0" prefHeight="744.0" prefWidth="466.0" stylesheets="@admin_dashboard.css">
+                                 <styleClass>
+                                    <String fx:value="white_bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <TextField fx:id="profesor_txb_id" layoutX="142.0" layoutY="40.0" prefWidth="240.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <TextField fx:id="profesor_txb_salariu" layoutX="142.0" layoutY="230.0" prefWidth="240.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <Label layoutX="107.0" layoutY="39.0" text="ID:">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="45.0" layoutY="78.0" text="ID utilizator:">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="profesor_btnAdd" layoutX="58.0" layoutY="429.0" mnemonicParsing="false" onAction="#addProfesori" prefHeight="45.0" prefWidth="80.0" styleClass="add-update-clear-btn" stylesheets="@admin_dashboard.css" text="Add" />
+                                    <Button fx:id="profesor_btnUpdate" layoutX="147.0" layoutY="429.0" mnemonicParsing="false" onAction="#updateProfesori" prefHeight="45.0" prefWidth="80.0" styleClass="add-update-clear-btn" stylesheets="@admin_dashboard.css" text="Update" />
+                                    <Button fx:id="profesor_btnClear" layoutX="237.0" layoutY="429.0" mnemonicParsing="false" onAction="#clearProfesori" prefHeight="45.0" prefWidth="80.0" styleClass="add-update-clear-btn" stylesheets="@admin_dashboard.css" text="Clear" />
+                                    <Button fx:id="profesor_btnDelete" layoutX="328.0" layoutY="429.0" mnemonicParsing="false" onAction="#deleteProfesori" prefHeight="45.0" prefWidth="80.0" styleClass="del-btn" stylesheets="@admin_dashboard.css" text="Delete" />
+                                    <TextField fx:id="profesor_txb_nume" layoutX="142.0" layoutY="118.0" prefWidth="240.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <TextField fx:id="profesor_txb_varsta" layoutX="141.0" layoutY="157.0" prefWidth="240.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <TextField fx:id="profesor_txb_sex" layoutX="142.0" layoutY="193.0" prefWidth="240.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <ComboBox fx:id="profesor_combo_idUtil" layoutX="142.0" layoutY="79.0" onAction="#utilizatoriAdreseList" prefWidth="240.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <Label layoutX="83.0" layoutY="117.0" text="Nume:">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="82.0" layoutY="156.0" text="Varsta:">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="102.0" layoutY="192.0" text="Sex:">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="82.0" layoutY="229.0" text="Salariu:">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="485.0" layoutY="12.0" prefHeight="744.0" prefWidth="850.0" stylesheets="@admin_dashboard.css">
+                                 <styleClass>
+                                    <String fx:value="white_bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <TableView fx:id="profesor_tableView" layoutX="12.0" layoutY="64.0" onMouseClicked="#profesoriCurentiSelect" prefHeight="670.0" prefWidth="829.0">
+                                      <columns>
+                                        <TableColumn fx:id="profesor_tableView_id" prefWidth="70.0" text="ID" />
+                                          <TableColumn fx:id="profesor_tableView_idUtiliz" prefWidth="80.60382080078125" text="ID Utilizator" />
+                                          <TableColumn fx:id="profesor_tableView_nume" prefWidth="277.13214111328125" text="Nume" />
+                                          <TableColumn fx:id="profesor_tableView_varsta" prefWidth="112.3018798828125" text="Varsta" />
+                                          <TableColumn fx:id="profesor_tableView_sex" prefWidth="131.3206787109375" text="Sex" />
+                                          <TableColumn fx:id="profesor_tableView_salariu" prefWidth="153.056640625" text="Salariu" />
+                                      </columns>
+                                    </TableView>
+                                    <TextField fx:id="profesor_searchBox" layoutX="35.0" layoutY="21.0" prefHeight="30.0" prefWidth="240.0" promptText="Search" styleClass="search" stylesheets="@admin_dashboard.css" />
+                                    <FontAwesomeIconView glyphName="SEARCH" layoutX="45.0" layoutY="42.0" size="1.5em" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="alocareOre_form" layoutX="39.0" layoutY="64.0" prefHeight="566.9434166294104" prefWidth="900.226447491428" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="14.0" layoutY="13.0" prefHeight="541.0" prefWidth="394.0" stylesheets="@admin_dashboard.css">
+                                 <styleClass>
+                                    <String fx:value="white_bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <ComboBox fx:id="alocareOre_combo_materie" layoutX="128.0" layoutY="36.0" prefWidth="220.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <ComboBox fx:id="alocareOre_combo_profesor" layoutX="128.0" layoutY="88.0" prefWidth="220.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <Label layoutX="51.0" layoutY="36.0" text="Materie:">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="48.0" layoutY="88.0" text="Profesor:">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="44.0" layoutY="142.0" text="Semestru:">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="alocareOre_btnAdd" layoutX="28.0" layoutY="222.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="80.0" styleClass="add-update-clear-btn" stylesheets="@admin_dashboard.css" text="Add" />
+                                    <Button fx:id="alocareOre_btnUpdate" layoutX="116.0" layoutY="222.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="80.0" styleClass="add-update-clear-btn" stylesheets="@admin_dashboard.css" text="Update" />
+                                    <Button fx:id="alocareOre_btnClear" layoutX="206.0" layoutY="222.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="80.0" styleClass="add-update-clear-btn" stylesheets="@admin_dashboard.css" text="Clear" />
+                                    <Button fx:id="alocareOre_btnDelete" layoutX="293.0" layoutY="222.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="80.0" styleClass="del-btn" stylesheets="@admin_dashboard.css" text="Delete" />
+                                    <TextField fx:id="alocareOre_txb_semestru" layoutX="128.0" layoutY="142.0" prefWidth="220.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="416.0" layoutY="13.0" prefHeight="540.0" prefWidth="560.0" stylesheets="@admin_dashboard.css">
+                                 <styleClass>
+                                    <String fx:value="white_bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <TableView fx:id="alocareOre_tableView" layoutX="12.0" layoutY="71.0" prefHeight="455.0" prefWidth="535.0">
+                                      <columns>
+                                        <TableColumn fx:id="alocareOre_tableView_materie" prefWidth="178.0" text="Materie" />
+                                        <TableColumn fx:id="alocareOre_tableView_profesor" prefWidth="206.0" text="Profesor" />
+                                          <TableColumn fx:id="alocareOre_tableView_semestru" prefWidth="148.52826126549564" text="Semestru" />
+                                      </columns>
+                                    </TableView>
+                                    <TextField fx:id="alocareOre_searchBox" layoutX="31.0" layoutY="20.0" prefHeight="30.0" prefWidth="240.0" promptText="Search" styleClass="search" stylesheets="@admin_dashboard.css" />
+                                    <FontAwesomeIconView glyphName="SEARCH" layoutX="37.0" layoutY="41.0" size="1.5em" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="user_form" layoutX="14.0" layoutY="44.0" prefHeight="768.0000276385623" prefWidth="1350.339671237142" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                              <AnchorPane layoutX="14.0" layoutY="13.0" prefHeight="376.0" prefWidth="418.0" stylesheets="@admin_dashboard.css">
+                                 <styleClass>
+                                    <String fx:value="white_bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <Button fx:id="users_btnAdd" layoutX="33.0" layoutY="272.0" mnemonicParsing="false" onAction="#addUtilizatori" prefHeight="45.0" prefWidth="80.0" styleClass="add-update-clear-btn" stylesheets="@admin_dashboard.css" text="Add" />
+                                    <Button fx:id="users_btnUpdate" layoutX="122.0" layoutY="272.0" mnemonicParsing="false" onAction="#updateUtilizatori" prefHeight="45.0" prefWidth="80.0" styleClass="add-update-clear-btn" stylesheets="@admin_dashboard.css" text="Update" />
+                                    <Button fx:id="users_btnClear" layoutX="213.0" layoutY="272.0" mnemonicParsing="false" onAction="#clearUtilizatori" prefHeight="45.0" prefWidth="80.0" styleClass="add-update-clear-btn" stylesheets="@admin_dashboard.css" text="Clear" />
+                                    <Button fx:id="users_btnDelete" layoutX="304.0" layoutY="272.0" mnemonicParsing="false" onAction="#deleteUtilizatori" prefHeight="45.0" prefWidth="80.0" styleClass="del-btn" stylesheets="@admin_dashboard.css" text="Delete" />
+                                    <TextField fx:id="users_txb_username" layoutX="140.0" layoutY="118.0" prefWidth="220.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <TextField fx:id="users_txb_password" layoutX="140.0" layoutY="167.0" prefWidth="220.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <TextField fx:id="users_txb_tipUtiliz" layoutX="140.0" layoutY="220.0" prefWidth="220.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <Label layoutX="60.0" layoutY="118.0" text="Username:">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="84.0" layoutY="167.0" text="Parola:">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="44.0" layoutY="217.0" text="Tip utilizator:">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="79.0" layoutY="69.0" text="Adresa:">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="users_txb_id" layoutX="139.0" layoutY="23.0" prefWidth="220.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <Label layoutX="112.0" layoutY="22.0" text="ID:">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox fx:id="users_combo_adrese" layoutX="139.0" layoutY="69.0" onAction="#utilizatoriAdreseList" prefWidth="220.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="444.0" layoutY="13.0" prefHeight="741.0" prefWidth="892.0" stylesheets="@admin_dashboard.css">
+                                 <styleClass>
+                                    <String fx:value="white_bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <TextField fx:id="users_searchBox" layoutX="60.0" layoutY="24.0" prefHeight="25.0" prefWidth="240.0" promptText="Search" styleClass="search" stylesheets="@admin_dashboard.css" />
+                                    <FontAwesomeIconView glyphName="SEARCH" layoutX="69.0" layoutY="42.0" size="1.5em" />
+                                    <TableView fx:id="users_tableView" layoutX="14.0" layoutY="63.0" onMouseClicked="#utilizatoriCurentiSelect" prefHeight="668.0" prefWidth="869.0">
+                                      <columns>
+                                        <TableColumn fx:id="users_tableView_idUtil" prefWidth="75.0" text="ID" />
+                                        <TableColumn fx:id="users_tableView_username" prefWidth="273.50946044921875" text="Username" />
+                                          <TableColumn fx:id="users_tableView_password" prefWidth="324.226318359375" text="Parola" />
+                                          <TableColumn fx:id="users_tableView_tipUser" prefWidth="127.6981201171875" text="Tip utilizator" />
+                                          <TableColumn fx:id="users_tableView_idAdr" prefWidth="62.490478515625" text="ID adr" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="14.0" layoutY="398.0" prefHeight="356.0" prefWidth="418.0" stylesheets="@admin_dashboard.css">
+                                 <styleClass>
+                                    <String fx:value="white_bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <BarChart fx:id="users_totalUsersChart" layoutX="-82.0" layoutY="-17.0" prefHeight="446.4905821059095" prefWidth="419.3207698073754" title="Total users in the system" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <xAxis>
+                                        <CategoryAxis side="BOTTOM" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis side="LEFT" />
+                                      </yAxis>
+                                    </BarChart>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="adrese_form" layoutX="202.0" layoutY="214.0" prefHeight="768.0000276385623" prefWidth="1350.339671237142" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                              <AnchorPane layoutX="14.0" layoutY="17.0" prefHeight="734.0" prefWidth="384.0" stylesheets="@admin_dashboard.css">
+                                 <styleClass>
+                                    <String fx:value="white_bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <Button fx:id="adrese_btnUpdate" layoutX="236.0" layoutY="519.0" mnemonicParsing="false" onAction="#updateAdrese" prefHeight="45.0" prefWidth="75.0" styleClass="add-update-clear-btn" stylesheets="@admin_dashboard.css" text="Update" />
+                                    <Button fx:id="adrese_btnAdd" layoutX="72.0" layoutY="520.0" mnemonicParsing="false" onAction="#addAdrese" prefHeight="43.0" prefWidth="75.0" styleClass="add-update-clear-btn" stylesheets="@admin_dashboard.css" text="Add" />
+                                    <Button fx:id="adrese_btnClear" layoutX="72.0" layoutY="600.0" mnemonicParsing="false" onAction="#clearAdrese" prefHeight="45.0" prefWidth="75.0" styleClass="add-update-clear-btn" stylesheets="@admin_dashboard.css" text="Clear" />
+                                    <Button fx:id="adrese_btnDelete" layoutX="236.0" layoutY="600.0" mnemonicParsing="false" onAction="#deleteAdrese" prefHeight="45.0" prefWidth="75.0" styleClass="del-btn" stylesheets="@admin_dashboard.css" text="Delete" />
+                                    <TextField fx:id="adrese_txb_tara" layoutX="131.0" layoutY="58.0" prefWidth="220.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <Label layoutX="87.0" layoutY="59.0" text="Tara:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="72.0" layoutY="96.0" text="District:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="adrese_txb_district" layoutX="131.0" layoutY="95.0" prefWidth="220.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <TextField fx:id="adrese_txb_sector" layoutX="131.0" layoutY="134.0" prefWidth="220.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <Label layoutX="75.0" layoutY="135.0" text="Sector:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="adrese_txb_localitate" layoutX="131.0" layoutY="174.0" prefWidth="220.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <Label layoutX="52.0" layoutY="175.0" text="Localitate:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="adrese_txb_strada" layoutX="131.0" layoutY="213.0" prefWidth="220.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <Label layoutX="70.0" layoutY="214.0" text="Strada:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="adrese_txb_numar" layoutX="131.0" layoutY="251.0" prefWidth="220.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <Label layoutX="68.0" layoutY="252.0" text="Numar:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="adrese_txb_bloc" layoutX="131.0" layoutY="288.0" prefWidth="220.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <Label layoutX="85.0" layoutY="289.0" text="Bloc:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="adrese_txb_scara" layoutX="131.0" layoutY="325.0" prefWidth="220.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <Label layoutX="77.0" layoutY="326.0" text="Scara:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="adrese_txb_etaj" layoutX="131.0" layoutY="361.0" prefWidth="220.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <Label layoutX="88.0" layoutY="362.0" text="Etaj:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="adrese_txb_apartament" layoutX="131.0" layoutY="397.0" prefWidth="220.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <Label layoutX="33.0" layoutY="398.0" text="Apartament:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="adrese_txb_id" layoutX="131.0" layoutY="21.0" prefWidth="220.0" styleClass="textfield" stylesheets="@admin_dashboard.css" />
+                                    <Label layoutX="93.0" layoutY="22.0" text="ID:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="406.0" layoutY="17.0" prefHeight="734.0" prefWidth="935.0" stylesheets="@admin_dashboard.css">
+                                 <styleClass>
+                                    <String fx:value="white_bg" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <children>
+                                    <TableView fx:id="adrese_tableView" layoutX="14.0" layoutY="51.0" onMouseClicked="#adreseDisponibileSelect" prefHeight="683.0" prefWidth="866.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="51.0">
+                                      <columns>
+                                        <TableColumn fx:id="adrese_tableView_tara" prefWidth="98.7169189453125" text="Tara" />
+                                          <TableColumn fx:id="adrese_tableView_district" prefWidth="114.11322021484375" text="District" />
+                                          <TableColumn fx:id="adrese_tableView_sector" prefWidth="49.811279296875" text="Sector" />
+                                          <TableColumn fx:id="adrese_tableView_localitate" prefWidth="182.94342041015625" text="Localitate" />
+                                          <TableColumn fx:id="adrese_tableView_strada" prefWidth="158.4906005859375" text="Strada" />
+                                          <TableColumn fx:id="adrese_tableView_numar" prefWidth="53.4339599609375" text="Numar" />
+                                          <TableColumn fx:id="adrese_tableView_bloc" prefWidth="57.0565185546875" text="Bloc" />
+                                          <TableColumn fx:id="adrese_tableView_scara" prefWidth="47.0943603515625" text="Scara" />
+                                          <TableColumn fx:id="adrese_tableView_etaj" prefWidth="47.09423828125" text="Etaj" />
+                                          <TableColumn fx:id="adrese_tableView_apartament" prefWidth="85.1322021484375" text="Apartament" />
+                                          <TableColumn fx:id="adrese_tableView_id" prefWidth="36.226318359375" text="ID" />
+                                      </columns>
+                                    </TableView>
+                                    <TextField fx:id="adrese_searchBox" layoutX="14.0" layoutY="9.0" prefHeight="30.0" prefWidth="240.0" promptText="Search" styleClass="search" stylesheets="@admin_dashboard.css" />
+                                    <FontAwesomeIconView glyphName="SEARCH" layoutX="21.0" layoutY="30.0" size="1.5em" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
